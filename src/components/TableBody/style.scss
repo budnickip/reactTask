@@ -1,0 +1,8 @@
+.table-body{
+    &__row{
+        &:nth-child(odd){
+            background-color: #ecf0f1;
+            border-color:  #ecf0f1;
+        }
+    }
+}
