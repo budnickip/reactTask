@@ -29,6 +29,7 @@ function App() {
       // setCurrencies(response.rates)
       setlastUpdate(currentDateTime)
       setCurrencies(response[0].rates)
+      console.log(response[0].rates)
     })
     .catch(error => {
       console.error("Błąd pobrania API!")
@@ -46,11 +47,29 @@ function App() {
   return (
     <div className="App">
       {lastUpdate}
-      <ul>
-        {currencies ? currencies.map(curr => {
-          return <li key={curr.code}>{curr.code}: {curr.bid}</li>
-        }) : <Loader />}
-      </ul>
+      <table>
+        <thead className="table-header">
+          <tr className="table-header__row">
+            <th className="table-header__item" id="currency-code">Kod</th>
+            <th className="table-header__item" id="currency-bid">Kupno</th>
+            <th className="table-header__item" id="currency-ask">Sprzedaż</th>
+          </tr>
+        </thead>
+        <tbody className="table-body">
+          {currencies ? currencies.filter(curr => {
+            if(curr.code === 'USD' || curr.code === 'EUR' || curr.code === 'GBP'){
+              return true
+            }else{
+              return false
+            }}).map(curr => {
+            return <tr key={curr.code} className="table-body__row">
+              <td className="table-body__item">{curr.code}</td>
+              <td className="table-body__item">{curr.bid}</td>
+              <td className="table-body__item">{curr.ask}</td>
+            </tr>
+          }) : <Loader />}
+        </tbody>
+      </table>
     </div>
   );
 }
