@@ -1,0 +1,25 @@
+.table{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0em;
+}
+
+.table-header__item{
+    font-size: 1.2em;
+    padding: 15px;
+}
+
+.table-body{
+    &__row{
+        &:nth-child(odd){
+            background-color: #ecf0f1;
+            border-color:  #ecf0f1;
+        }
+    }
+    
+    &__item{
+        padding: 8px;
+        text-align: center;
+    }
+}
