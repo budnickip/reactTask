@@ -34,22 +34,22 @@ const DrawChart = (props) =>{
         return monthEalierDate
       }
 
-      // Pobieram wszystkie elementy tablicy i zwracam tablice, gdzie pierwszy element posiada tablice trzech
+      // Pobieram wszystkie elementy tablicy i zwracam obiekt, gdzie pierwszy element posiada tablice trzech
     // walut (EUR, USD, GBP), a drugi element datę.
     // dzięki temu w prosty sposób mogę zmieniac, które waluty mają być wyświetlane
     const convertLastMonthCurrencies = () =>{
         currenciesOldData.length = 0;
         currenciesOldData.push(['Dzień','EUR','USD','GBP'])
         lastMonthCurrencies.map(item=>{
-        return [item.rates.filter(currency =>{
+        return {rates: item.rates.filter(currency =>{
             if(currency.code === 'EUR' || currency.code === 'USD' || currency.code === 'GBP'){
             return true;
             }else{
             return false;
             }
-        }), item.effectiveDate]
+        }), date: item.effectiveDate}
         }).forEach(currency =>{
-        currenciesOldData.push([currency[1], currency[0][0].mid, currency[0][1].mid, currency[0][2].mid])
+        currenciesOldData.push([currency.date, currency.rates[0].mid, currency.rates[1].mid, currency.rates[2].mid])
         })
     }
     
