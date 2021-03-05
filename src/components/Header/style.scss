@@ -1,0 +1,15 @@
+.header{
+    background-image: url('../../images/header.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center, center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__paragraph{
+        width: 100%;
+        color: white;
+        margin: 1em;
+    }
+}

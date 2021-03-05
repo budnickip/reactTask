@@ -12,7 +12,7 @@ const DrawChart = (props) =>{
                 data={props.currenciesOldData}
                 options={{
                     chart: {
-                    title: 'Tabela średnich kursów walut',
+                    title: 'Wykres średnich kursów walut',
                     subtitle: 'z ostatniego miesiąca',
                     },
                 }}

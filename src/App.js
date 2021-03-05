@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import './App.scss';
-import Table from './components/Table'
 import DrawChart from './components/DrawChart'
+import Header from './components/Header'
 
 function App() {
   const [currencies, setCurrencies] = useState([])
   const [lastUpdate, setlastUpdate] = useState('')
   const [lastMonthCurrencies, setLastMonthCurrencies] = useState([])
   const [currenciesOldData, setcurrenciesOldData] = useState([])
-  //2012-01-31
+
   useEffect(()=>{
     let dateNow = getCurrentDate()
     let monthEalier = getMonthEalierDate()
@@ -103,10 +103,8 @@ function App() {
 
   return (
     <div className="App">
-      <p className="App__paragraph">{lastUpdate}</p>
-      <Table currencies={currencies} />
+      <Header lastUpdate={lastUpdate} currencies={currencies} />
       <DrawChart currenciesOldData={currenciesOldData} />
-
     </div>
   );
 }
