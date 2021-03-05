@@ -3,7 +3,7 @@ import './App.css';
 import Loader from './components/Loader'
 
 function App() {
-  const [currencies, setCurrencies] = useState([])
+  const [currencies, setCurrencies] = useState(null)
   const [lastUpdate, setlastUpdate] = useState('')
 
   useEffect(() => {
@@ -14,8 +14,6 @@ function App() {
   }, []);
 
   const fetchData = () =>{
-    //fetch('http://data.fixer.io/api/latest?access_key=9518d1ec1bfd7aed7c6c23cdc048afbe')
-       // fetch(`http://api.nbp.pl/api/exchangerates/rates/c/eur/`)
     fetch(`http://api.nbp.pl/api/exchangerates/tables/c/`)
     .then(response =>{
       if(response.ok){
@@ -25,8 +23,8 @@ function App() {
       }
      })
     .then((response) => {
-     // console.log(response.rates)
-      // setCurrencies(response.rates)
+      //console.log(response[0].rates)
+
       setlastUpdate(currentDateTime)
       setCurrencies(response[0].rates)
     })
