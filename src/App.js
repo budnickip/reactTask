@@ -12,7 +12,7 @@ function App() {
   useEffect(()=>{
     let dateNow = getCurrentDate()
     let monthEalier = getMonthEalierDate()
-    fetch(`http://api.nbp.pl/api/exchangerates/tables/a/${monthEalier}/${dateNow}/`)
+    fetch(`https://api.nbp.pl/api/exchangerates/tables/a/${monthEalier}/${dateNow}/`)
     .then(res => {
       if(res.ok){
         return res.json()
@@ -36,7 +36,7 @@ function App() {
   }, []);
 
   const fetchData = () =>{
-    fetch(`http://api.nbp.pl/api/exchangerates/tables/c/`)
+    fetch(`https://api.nbp.pl/api/exchangerates/tables/c/`)
     .then(response =>{
       if(response.ok){
           return response.json()

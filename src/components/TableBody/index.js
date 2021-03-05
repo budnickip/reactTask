@@ -11,7 +11,7 @@ const TableBody = (props) =>{
             }else{
                 return false
             }}).map(curr => {
-                return <TableItem curr={curr} />
+                return <TableItem key={curr.code} curr={curr} />
             }) : <Loader />}
         </tbody>
     )
