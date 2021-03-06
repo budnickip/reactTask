@@ -41,7 +41,7 @@ const DrawChart = (props) =>{
     // dzięki temu w prosty sposób mogę zmieniac, które waluty mają być wyświetlane
     const convertLastMonthCurrencies = () =>{
         currenciesOldData.length = 0;
-        currenciesOldData.push(['Dzień','EUR','USD','GBP'])
+      //  currenciesOldData.push(['Dzień','USD','EUR','GBP'])
         lastMonthCurrencies.map(item=>{
         return {rates: item.rates.filter(currency =>{
             if(currency.code === 'EUR' || currency.code === 'USD' || currency.code === 'GBP'){
@@ -50,8 +50,11 @@ const DrawChart = (props) =>{
             return false;
             }
         }), date: item.effectiveDate}
-        }).forEach(currency =>{
-        currenciesOldData.push([currency.date, currency.rates[1].mid, currency.rates[0].mid, currency.rates[2].mid])
+        }).forEach((currency, index) =>{
+          if(index === 0){
+            currenciesOldData.push(['Dzień', currency.rates[0].code, currency.rates[1].code, currency.rates[2].code])
+          }
+          currenciesOldData.push([currency.date, currency.rates[0].mid, currency.rates[1].mid, currency.rates[2].mid])
         })
     }
     
