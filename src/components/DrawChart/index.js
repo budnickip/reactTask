@@ -26,11 +26,13 @@ const DrawChart = (props) =>{
         })
       }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
+      //obsługuje również rok wstecz.
       const getMonthEalierDate = () =>{
         let currentdate = props.getCurrentDate()
         let currentMonth = +currentdate.slice(5,7)
-        let monthEalier = --currentMonth < 10 ? '0' + currentMonth : currentMonth
-        let monthEalierDate = `${currentdate.slice(0,5).concat(monthEalier).concat(currentdate.slice(7))}`
+        let monthEalier = currentMonth === 1 ? 12 : --currentMonth < 10 ? '0' + currentMonth : currentMonth
+        let year = monthEalier === 12 ? +currentdate.slice(0,4) -1 : +currentdate.slice(0,4)
+        let monthEalierDate = year+'-'+monthEalier+currentdate.slice(7)
         return monthEalierDate
       }
 
@@ -49,7 +51,7 @@ const DrawChart = (props) =>{
             }
         }), date: item.effectiveDate}
         }).forEach(currency =>{
-        currenciesOldData.push([currency.date, currency.rates[0].mid, currency.rates[1].mid, currency.rates[2].mid])
+        currenciesOldData.push([currency.date, currency.rates[1].mid, currency.rates[0].mid, currency.rates[2].mid])
         })
     }
     
