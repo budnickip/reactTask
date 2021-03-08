@@ -9,9 +9,14 @@ function App() {
 
   useEffect(() => {
     fetchData()
-    setInterval(() => {
+    
+    let interval = setInterval(() => {
       fetchData()
     }, 10000);
+
+    return () =>{
+      clearInterval(interval)
+    }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchData = () =>{
