@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/reactTask/static/css/main.917a2f8f.chunk.css",
-    "main.js": "/reactTask/static/js/main.b0098e30.chunk.js",
-    "main.js.map": "/reactTask/static/js/main.b0098e30.chunk.js.map",
+    "main.js": "/reactTask/static/js/main.2165e32a.chunk.js",
+    "main.js.map": "/reactTask/static/js/main.2165e32a.chunk.js.map",
     "runtime-main.js": "/reactTask/static/js/runtime-main.13ec8f67.js",
     "runtime-main.js.map": "/reactTask/static/js/runtime-main.13ec8f67.js.map",
     "static/js/2.b59a69c4.chunk.js": "/reactTask/static/js/2.b59a69c4.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.13ec8f67.js",
     "static/js/2.b59a69c4.chunk.js",
     "static/css/main.917a2f8f.chunk.css",
-    "static/js/main.b0098e30.chunk.js"
+    "static/js/main.2165e32a.chunk.js"
   ]
 }
