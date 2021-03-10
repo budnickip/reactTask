@@ -49,7 +49,7 @@ function App() {
     let currentdate = new Date()
     let convertMonth = +currentdate.getMonth() + 1
     let month = currentdate.getMonth() + 1 < 10 ? '0' + convertMonth : convertMonth
-    let day = currentdate.getDate() < 10 ? '0' + currentdate.getDay() : currentdate.getDay()
+    let day = currentdate.getDay() < 10 ? '0' + currentdate.getDay() : currentdate.getDay()
     let date = `${currentdate.getFullYear()}-${month}-${day}`
     return date
   }
